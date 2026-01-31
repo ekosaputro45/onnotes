@@ -1,0 +1,22 @@
+*.log
+.DS_Store
+Thumbs.db
+
+# Env (never commit)
+.env
+.env.*
+
+# Node
+node_modules/
+
+# Frontend build output
+frontend/dist/
+
+# Backups
+backups/
+
+# Editor
+.vscode/
+.idea/
+.fleet/
+.zed/
