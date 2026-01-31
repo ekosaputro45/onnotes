@@ -5,6 +5,8 @@ Thumbs.db
 # Env (never commit)
 .env
 .env.*
+!.env.example
+!frontend/.env.example
 
 # Node
 node_modules/

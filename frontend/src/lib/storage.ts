@@ -1,11 +1,16 @@
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { getStorageClient } from './firebase'
 import type { NoteImage } from '../types'
+import { cloudinaryConfigured, uploadToCloudinary } from './cloudinary'
 
 export async function uploadNoteImage(params: {
   userId: string
   file: File
 }): Promise<NoteImage> {
+  if (cloudinaryConfigured) {
+    return uploadToCloudinary({ userId: params.userId, file: params.file })
+  }
+
   const storage = getStorageClient()
   const ext = params.file.name.split('.').pop() || 'bin'
   const safeExt = ext.toLowerCase().replace(/[^a-z0-9]/g, '') || 'bin'

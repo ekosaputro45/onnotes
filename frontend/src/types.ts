@@ -5,9 +5,10 @@ export type Category = {
 }
 
 export type NoteImage = {
-  kind: 'storage' | 'external'
+  kind: 'storage' | 'external' | 'cloudinary'
   url: string
   storagePath?: string
+  publicId?: string
 }
 
 export type Note = {
